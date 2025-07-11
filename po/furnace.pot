@@ -3688,6 +3688,15 @@ msgid ""
 "waveforms (besides triangle)."
 msgstr ""
 
+#: src/engine/sysDef.cpp:2346
+msgid "7E02"
+msgstr ""
+
+#: src/engine/sysDef.cpp:2347
+msgid ""
+"a fantasy sound chip created by Heemin. it is based on Ricoh 2A03, adding a couple features such as fixed-set waveform channels, and an weird half-configuable waveform channel."
+msgstr ""
+
 #: src/engine/sysDef.cpp:2272
 msgid ""
 "12xx: Set duty cycle/noise mode/waveform (pulse/wave: 0 to 3; noise: 0 or 1)"

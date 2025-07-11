@@ -24,6 +24,7 @@
 
 #include "sound/nes_nsfplay/nes_apu.h"
 #include "sound/nes_nsfplay/5e01_apu.h"
+#include "sound/nes_nsfplay/7e02_apu.h"
 #include "../../fixedQueue.h"
 
 class DivPlatformNES: public DivDispatch {
@@ -74,11 +75,14 @@ class DivPlatformNES: public DivDispatch {
   bool goingToLoop;
   bool countMode;
   bool isE;
+  bool isH;
   struct NESAPU* nes;
   xgm::NES_APU* nes1_NP;
   xgm::NES_DMC* nes2_NP;
   xgm::I5E01_APU* e1_NP;
   xgm::I5E01_DMC* e2_NP;
+  xgm::I7E02_APU* h1_NP;
+  xgm::I7E02_DMC* h2_NP;
   unsigned char regPool[128];
   unsigned int sampleOffDPCM[256];
   DivMemoryComposition memCompo;
@@ -111,6 +115,7 @@ class DivPlatformNES: public DivDispatch {
     unsigned char readDMC(unsigned short addr);
     void setNSFPlay(bool use);
     void set5E01(bool use);
+    void set7E02(bool use);
     void setFlags(const DivConfig& flags);
     void notifyInsDeletion(void* ins);
     void poke(unsigned int addr, unsigned short val);

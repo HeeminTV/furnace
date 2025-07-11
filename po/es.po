@@ -3937,6 +3937,15 @@ msgstr "1Fxx: Ajustar volumen global (0 a 7F)"
 msgid "5E01"
 msgstr ""
 
+#: src/engine/sysDef.cpp:2346
+msgid "7E02"
+msgstr ""
+
+#: src/engine/sysDef.cpp:2347
+msgid ""
+"a fantasy sound chip created by Heemin. it is based on Ricoh 2A03, adding a couple features such as fixed-set waveform channels, and an weird half-configuable waveform channel."
+msgstr ""
+
 #: src/engine/sysDef.cpp:2264
 msgid ""
 "a fantasy sound chip created by Euly. it is based on Ricoh 2A03, adding a "

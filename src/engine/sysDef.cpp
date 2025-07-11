@@ -2342,6 +2342,28 @@ void DivEngine::registerSystems() {
     {DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD}
   );
 
+  sysDefs[DIV_SYSTEM_7E02] = new DivSysDef(
+    _("7E02"), NULL, 0xf1, 0, 5, false, true, 0x161, false, (1U << DIV_SAMPLE_DEPTH_1BIT_DPCM) | (1U << DIV_SAMPLE_DEPTH_8BIT), 0, 0,
+    _("a fantasy sound chip created by Heemin. it is based on Ricoh 2A03, adding a couple features such as fixed-set waveform channels, and an weird half-configuable waveform channel."), // this description should be rewritten. i'm suck at explaning shits
+    { _("FWG 1"), _("FWG 2"), _("Wave"), _("Noise"), _("DPCM") },
+    { "F1", "F2", "WA", "NO", "DMC" },
+    { DIV_CH_PULSE, DIV_CH_PULSE, DIV_CH_WAVE, DIV_CH_NOISE, DIV_CH_PCM },
+    { DIV_INS_NES, DIV_INS_NES, DIV_INS_NES, DIV_INS_NES, DIV_INS_NES },
+    { DIV_INS_NULL, DIV_INS_NULL, DIV_INS_NULL, DIV_INS_NULL, DIV_INS_AMIGA },
+    {
+      {0x11, {DIV_CMD_NES_DMC, _("11xx: Write to delta modulation counter (0 to 7F)")}},
+      {0x12, {DIV_CMD_STD_NOISE_MODE, _("12xx: Set duty cycle/noise mode/waveform (pulse/wave: 0 to 3; noise: 0 or 1)")}},
+      {0x13, {DIV_CMD_NES_SWEEP, _("13xy: Sweep up (x: time; y: shift)"),constVal<0>,effectVal}},
+      {0x14, {DIV_CMD_NES_SWEEP, _("14xy: Sweep down (x: time; y: shift)"),constVal<1>,effectVal}},
+      {0x15, {DIV_CMD_NES_ENV_MODE, _("15xx: Set envelope mode (0: envelope, 1: length, 2: looping, 3: constant)")}},
+      {0x16, {DIV_CMD_NES_LENGTH, _("16xx: Set length counter (refer to manual for a list of values)")}},
+      {0x17, {DIV_CMD_NES_COUNT_MODE, _("17xx: Set frame counter mode (0: 4-step, 1: 5-step)")}},
+      {0x18, {DIV_CMD_SAMPLE_MODE, _("18xx: Select PCM/DPCM mode (0: PCM; 1: DPCM)")}},
+      {0x19, {DIV_CMD_NES_LINEAR_LENGTH, _("19xx: Set triangle linear counter (0 to 7F; 80 and higher halt)")}},
+      {0x20, {DIV_CMD_SAMPLE_FREQ, _("20xx: Set DPCM frequency (0 to F)")}}
+    }
+    );
+
   for (int i=0; i<DIV_MAX_CHIP_DEFS; i++) {
     if (sysDefs[i]==NULL) continue;
     if (sysDefs[i]->id!=0) {

@@ -1021,6 +1021,12 @@ void DivPlatformNES::set5E01(bool use) {
   if (isE) useNP=true;
 }
 
+void DivPlatformNES::set7E02(bool use) {
+  isH = use;
+  // for now
+  if (isH) useNP = true;
+}
+
 unsigned char DivPlatformNES::readDMC(unsigned short addr) {
   return dpcmMem[(addr&0x3fff)|((dpcmBank&15)<<14)];
 }
@@ -1106,6 +1112,16 @@ int DivPlatformNES::init(DivEngine* p, int channels, int sugRate, const DivConfi
         data=readDMC(addr);
       });
       e2_NP->SetAPU(e1_NP);
+    } else if (isH) {
+      h1_NP = new xgm::I7E02_APU;
+      h1_NP->SetOption(xgm::I7E02_APU::OPT_NONLINEAR_MIXER, 1);
+      h2_NP = new xgm::I7E02_DMC;
+      h2_NP->SetOption(xgm::I7E02_DMC::OPT_NONLINEAR_MIXER, 1);
+      h2_NP->SetMemory([this](unsigned short addr, unsigned int& data) {
+        data = readDMC(addr);
+        });
+      h2_NP->SetAPU(e1_NP);
+    }
     } else {
       nes1_NP=new xgm::NES_APU;
       nes1_NP->SetOption(xgm::NES_APU::OPT_NONLINEAR_MIXER,1);

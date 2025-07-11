@@ -3897,6 +3897,15 @@ msgstr "1Fxx: 전역 볼륨 설정 (0 에서 7F)"
 msgid "5E01"
 msgstr "5E01"
 
+#: src/engine/sysDef.cpp:2346
+msgid "7E02"
+msgstr ""
+
+#: src/engine/sysDef.cpp:2347
+msgid ""
+"a fantasy sound chip created by Heemin. it is based on Ricoh 2A03, adding a couple features such as fixed-set waveform channels, and an weird half-configuable waveform channel."
+msgstr ""
+
 #: src/engine/sysDef.cpp:2264
 msgid ""
 "a fantasy sound chip created by Euly. it is based on Ricoh 2A03, adding a "

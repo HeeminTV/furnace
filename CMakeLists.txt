@@ -573,6 +573,8 @@ src/engine/platform/sound/atomicssg/ssg.c
 
 src/engine/platform/sound/nes_nsfplay/5e01_apu.cpp
 src/engine/platform/sound/nes_nsfplay/5e01_dmc.cpp
+src/engine/platform/sound/nes_nsfplay/7e02_apu.cpp
+src/engine/platform/sound/nes_nsfplay/7e02_dmc.cpp
 src/engine/platform/sound/nes_nsfplay/nes_apu.cpp
 src/engine/platform/sound/nes_nsfplay/nes_dmc.cpp
 src/engine/platform/sound/nes_nsfplay/nes_fds.cpp
